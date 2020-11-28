@@ -7,14 +7,52 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
-  <script>bubbly({
+<script src="https://cdn.jsdelivr.net/npm/bubbly-bg@1.0.0/dist/bubbly-bg.js"></script>
+<script>bubbly({
     colorStart: "#fff4e6",
     colorStop: "#ffe9e4",
     blur: 1,
     compose: "source-over",
     bubbleFunc: () => `hsla(${Math.random() * 50}, 100%, 50%, .3)`
-});;</script>
+});;
+</script>
+<script> 
+  function changeStatus()
+    {
+      var status = document.getElementById("donate");
+
+       if(status.value == "Cash")
+       {
+        document.getElementById("amount").style.display="block";
+       }
+       else
+       {
+        document.getElementById("amount").style.display="none";
+       }
+
+       if(status.value == "Food")
+       {
+        document.getElementById("Foodtype").style.display="block";
+        document.getElementById("quantity1").style.display="block";
+       }
+       else
+       {
+        document.getElementById("Foodtype").style.display="none";
+        document.getElementById("quantity1").style.display="none";
+       }
+
+      if(status.value == "necessities")
+       {
+        document.getElementById("necessity").style.display="block";
+        document.getElementById("quantity2").style.display="block";
+       }
+       else
+       {
+        document.getElementById("necessity").style.display="none";
+        document.getElementById("quantity2").style.display="none";
+       }
+    }
+</script>
 
 <div class="wrapper">
     <div class="title">
@@ -44,17 +82,38 @@
        <div class="title">
         Donation Type
       </div>
-       <div class="inputfield">
-        <label>Select your Donation Type</label>
-        <div class="custom_select">
-          <select>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="female">Other</option>
+      <div class="inputfield">
+        <label>Donation Type</label>
+        <div id="donations" class="custom_select">
+          <select onchange="changeStatus()" id="donate">
+            <options valuse="#">Select</option>
+            <option value="Cash">Cash</option>
+            <option value="Food">Food</option>
+            <option value="necessities">Other necessities</option>
           </select>
         </div>
-     </div> 
+      </div>
+      <div class="inputfield" class="data" id="amount">
+        <label>Amount</label>
+        <input type="text" class="input"></input>
+      </div>
+      <div class="inputfield" class="data" id="Foodtype">
+        <label>Food type</label>
+        <input type="text" class="input"></input>
+      </div>
+      <div class="inputfield" class="data" id="quantity1">
+        <label>Quantity</label>
+        <input type="text" class="input"></input>
+      </div>
+      <div class="inputfield" class="data" id="necessity">
+        <label>Other necessities</label>
+        <input type="text" class="input"></input>
+      </div>
+      <div class="inputfield" class="data" id="quantity2">
+        <label>Quantity</label>
+        <input type="text" class="input"></input>
+      </div>
+     
       <div class="inputfield">
         <input type="submit" value="Donate" class="btn">
       </div>
